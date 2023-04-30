@@ -1,4 +1,5 @@
 ﻿using EccobankAdmin.Vistas;
+using EccobankAdmin.Vistas.Config;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace EccobankAdmin
         {
             InitializeComponent();
 
-            MainPage = new Menuprincipal();
+            MainPage = new Menuconfig();
         }
 
         protected override void OnStart()
