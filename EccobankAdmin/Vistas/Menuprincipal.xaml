@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EccobankAdmin.Vistas.Menuprincipal"
              xmlns:degradado="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
-    <Grid RowDefinitions="300,*,40,*"
+    <Grid RowDefinitions="300,130,40,*"
           BackgroundColor="#E9EDF3">
         <degradado:PancakeView BackgroundColor="White" 
                                CornerRadius="0,0,30,30">

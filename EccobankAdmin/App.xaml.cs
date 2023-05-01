@@ -12,7 +12,7 @@ namespace EccobankAdmin
         {
             InitializeComponent();
 
-            MainPage = new Menuconfig();
+            MainPage = new Menuprincipal();
         }
 
         protected override void OnStart()
