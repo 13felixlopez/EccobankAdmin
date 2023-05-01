@@ -11,16 +11,18 @@
             </LinearGradientBrush>
         </Grid.Background>
         <ImageButton Source="flecha_left2.png"
+                     BackgroundColor="Transparent"
                      BorderColor="Black"
                      CornerRadius="20"
                      HorizontalOptions="Start"
                      Margin="10,10,0,40"
                      Command="{Binding Volvercomamd}"/>
         <ScrollView Grid.Row="1">
+            <!--Modifique el RowDefinitions para hecer mas pequeño los grid
+            Estaba todo en auto-->
             <Grid ColumnDefinitions="*,*"
-                  RowDefinitions="auto,auto,auto"
-                  Margin="20,0,20,20"
-                  >
+                  RowDefinitions="300,auto,auto"
+                  Margin="20,0,20,20">
                 <Frame CornerRadius="15"
                        HasShadow="False">
                     <StackLayout VerticalOptions="Center">
@@ -41,6 +43,9 @@
                                HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavegarRecolectoresconfigcomamd}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 <Frame CornerRadius="15"
                        Grid.Row="0"

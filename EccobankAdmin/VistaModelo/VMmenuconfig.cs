@@ -4,6 +4,7 @@ using System.Text;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using EccobankAdmin.Vistas;
+using EccobankAdmin.Vistas.Config;
 
 namespace EccobankAdmin.VistaModelo
 {
@@ -17,6 +18,7 @@ namespace EccobankAdmin.VistaModelo
         {
             Navigation = navigation;
             Volvercomamd = new Command(async () => await volver());
+            NavegarRecolectoresconfigcomamd = new Command(async () => await NavegarRecolectoresconfig());
         }
         #endregion
         #region OBJETOS 
@@ -32,9 +34,14 @@ namespace EccobankAdmin.VistaModelo
         {
             await Navigation.PopAsync();
         }
+        private async Task NavegarRecolectoresconfig()
+        {
+            await Navigation.PushAsync(new Recolectoresconfig());
+        }
         #endregion
         #region COMANDOS
         public Command Volvercomamd { get; }
+        public Command NavegarRecolectoresconfigcomamd { get; }
         #endregion
     }
 }
