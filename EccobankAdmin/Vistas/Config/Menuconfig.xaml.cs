@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EccobankAdmin.VistaModelo;
 
 namespace EccobankAdmin.Vistas.Config
 {
@@ -15,6 +16,7 @@ namespace EccobankAdmin.Vistas.Config
         public Menuconfig()
         {
             InitializeComponent();
+            BindingContext = new VMmenuconfig(Navigation);
         }
     }
 }
