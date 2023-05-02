@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EccobankAdmin.VistaModelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace EccobankAdmin.Vistas.Config
         public Recolectoresconfig()
         {
             InitializeComponent();
+            BindingContext = new VMRecolectoresconfig(Navigation);
         }
     }
 }
