@@ -19,6 +19,7 @@ namespace EccobankAdmin.VistaModelo
             Navigation = navigation;
             Volvercomamd = new Command(async () => await volver());
             NavegarRecolectoresconfigcomamd = new Command(async () => await NavegarRecolectoresconfig());
+            NavegarProductosconfigcomamd = new Command(async () => await NavegarProductosconfig());
         }
         #endregion
         #region OBJETOS 
@@ -37,11 +38,16 @@ namespace EccobankAdmin.VistaModelo
         private async Task NavegarRecolectoresconfig()
         {
             await Navigation.PushAsync(new Recolectoresconfig());
+        } 
+        private async Task NavegarProductosconfig()
+        {
+            await Navigation.PushAsync(new Productosconfig());
         }
         #endregion
         #region COMANDOS
         public Command Volvercomamd { get; }
         public Command NavegarRecolectoresconfigcomamd { get; }
+        public Command NavegarProductosconfigcomamd { get; }
         #endregion
     }
 }

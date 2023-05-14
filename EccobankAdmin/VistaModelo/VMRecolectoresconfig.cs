@@ -5,6 +5,8 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using EccobankAdmin.Datos;
 using EccobankAdmin.Modelo;
+using Firebase.Auth;
+using EccobankAdmin.Conexiones;
 
 namespace EccobankAdmin.VistaModelo
 {
@@ -14,6 +16,7 @@ namespace EccobankAdmin.VistaModelo
         string txtnombre;
         string txtcorreo;
         string txtidentificacion;
+        string txtcontraseña;
         #endregion
         #region CONSTRUCTOR
         public VMRecolectoresconfig(INavigation navigation)
@@ -40,26 +43,55 @@ namespace EccobankAdmin.VistaModelo
             get { return txtcorreo; }
             set { SetValue(ref txtcorreo, value); }
         }
+        public string Txtcontraseña
+        {
+            get { return txtcontraseña; }
+            set { SetValue(ref txtcontraseña, value); }
+        }
 
         #endregion
         #region PROCESOS
         private async Task InsertarRecolectores()
         {
+
             var funcion = new DRecolectores();
             var parametros = new MRecolectores();
             parametros.Nombre = Txtnombre;
             parametros.Identificacion = Txtidentificacion;
             parametros.Correo = Txtcorreo;
             parametros.Estado = "Activo";
-            var estadofuncion = await funcion.InsertarRecolectores(parametros);
-            if (estadofuncion==true)
+            if (string.IsNullOrEmpty(Txtnombre) & string.IsNullOrEmpty(Txtidentificacion) & string.IsNullOrEmpty(Txtcorreo) & string.IsNullOrEmpty(Txtcontraseña))
             {
-                await DisplayAlert("Estado", "Registro realizado", "ok");
+                await DisplayAlert("ERROR", "Tiene campos vacios", "OK");
             }
+            else
+            {
+                var estadofuncion = await funcion.InsertarRecolectores(parametros);
+                if (estadofuncion == true)
+                {
+                    await CrearCorreo(txtcorreo, txtcontraseña);
+                }
+            }
+
         }
         private async Task Volver()
         {
             await Navigation.PopAsync();
+        }
+        private async Task CrearCorreo(string correo, string contraseña)
+        {
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(Constantes.webapiFirebase));
+            await authProvider.CreateUserWithEmailAndPasswordAsync(correo, contraseña);
+            await DisplayAlert("Estado", "Registro realizado", "OK");
+            limpiar();
+        }
+
+        private void limpiar()
+        {
+            Txtnombre = "";
+            Txtidentificacion = "";
+            Txtcorreo = "";
+            Txtcontraseña = "";
         }
         #endregion
         #region COMANDOS
