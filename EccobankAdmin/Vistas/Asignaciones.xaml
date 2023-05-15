@@ -1,12 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EccobankAdmin.Vistas.Asignaciones">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             x:Class="EccobankAdmin.Vistas.Asignaciones"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,1">
+                <GradientStop x:Name="Gra1" Color="#D6F4E7"
+                              Offset="0.1"/>
+                <GradientStop x:Name="Gra2" Color="#11ffbd"
+                              Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ImageButton Source="flecha_left2.png"
+                     BackgroundColor="Transparent"
+                     HorizontalOptions="Start"
+                     VerticalOptions="Start"
+                     Margin="10,10,0,0"
+                         Command="{Binding volvercomamd}"/>
+        <ScrollView>
+            <StackLayout Margin="10,60,10,0">
+                <SearchBar Text="{Binding Txtidentificacion}"
+                           SearchCommand="{Binding buscarcomamd}"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Recolector"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"/>
+                    <Label Text="{Binding TxtnombreRecolector}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"/>
+                </StackLayout>
+            <Button Text="Asignar"
+                    TextTransform="None"
+                    HorizontalOptions="Center"
+                    CornerRadius="15"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    BackgroundColor="White"
+                    Margin="0,20,0,0"
+                    Command="{Binding Insertarcomamd}"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

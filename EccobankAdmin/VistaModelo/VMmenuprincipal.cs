@@ -47,7 +47,7 @@ namespace EccobankAdmin.VistaModelo
         private async Task NavegarAsignaciones(Msolicitudesrecojo parametros)
         {
             string Idsolicitud = parametros.Idsolicitud;
-
+            VMasignaciones.idsolicitud = Idsolicitud;
             await Navigation.PushAsync(new Asignaciones());
         }
         private async Task Mostrarsolicitudesrecojo()
