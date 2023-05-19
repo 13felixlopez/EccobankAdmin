@@ -18,5 +18,6 @@ namespace EccobankAdmin.Vistas
             InitializeComponent();
             BindingContext = new VMasignaciones(Navigation);
         }
+
     }
 }

@@ -29,7 +29,7 @@
                                        FontSize="18"
                                        FontAttributes="Bold"
                                        VerticalOptions="Center"/>
-                                <Button Text="Bank"
+                                <Button Text="Center"
                                         BackgroundColor="#D0F2D8"
                                         CornerRadius="15"
                                         FontAttributes="Bold"

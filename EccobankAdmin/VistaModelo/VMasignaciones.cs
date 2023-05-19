@@ -21,7 +21,7 @@ namespace EccobankAdmin.VistaModelo
         {
             Navigation = navigation;
             Insertarcomamd = new Command(async () => await Insertarasignaciones());
-            volvercomamd = new Command(async () => await volver());
+            Volvercomamd = new Command(async () => await volver());
             buscarcomamd = new Command(async () => await Buscarrecolectores());
         }
         #endregion
@@ -57,6 +57,7 @@ namespace EccobankAdmin.VistaModelo
                 if (estadofuncion == true)
                 {
                     await DisplayAlert("Registrado", "Registro realizado", "OK");
+                    await Navigation.PopAsync();
                 }
             }
             else
@@ -84,7 +85,7 @@ namespace EccobankAdmin.VistaModelo
         #endregion
         #region COMANDOS
         public Command Insertarcomamd { get; }
-        public Command volvercomamd { get; }
+        public Command Volvercomamd { get; }
         public Command buscarcomamd { get; }
         #endregion
     }

@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:vistamodelo="clr-namespace:EccobankAdmin.VistaModelo" 
+             x:DataType="vistamodelo:VMasignaciones"
              x:Class="EccobankAdmin.Vistas.Asignaciones"
              NavigationPage.HasNavigationBar="False">
-    <Grid>
+    <Grid RowDefinitions="70,*">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0,1">
                 <GradientStop x:Name="Gra1" Color="#D6F4E7"
@@ -12,14 +14,14 @@
                               Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <ImageButton Source="flecha_left2.png"
-                     BackgroundColor="Transparent"
-                     HorizontalOptions="Start"
-                     VerticalOptions="Start"
-                     Margin="10,10,0,0"
-                         Command="{Binding volvercomamd}"/>
-        <ScrollView>
-            <StackLayout Margin="10,60,10,0">
+        <Button Grid.Row="0" ImageSource="flecha_left2.png"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Margin="0,0,0,0"
+                Command="{Binding Volvercomamd}"/>
+        <ScrollView Grid.Row="1">
+            <StackLayout Margin="10,0,10,0">
                 <SearchBar Text="{Binding Txtidentificacion}"
                            SearchCommand="{Binding buscarcomamd}"/>
                 <StackLayout Orientation="Horizontal">
